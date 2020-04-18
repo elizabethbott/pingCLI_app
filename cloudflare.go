@@ -36,12 +36,13 @@ func main(){
       //ex
 
 
-      var userInput = os.Args[1]
+    //  var userInput = os.Args[1]
       //userInput will = the users host name or ip address for pint
 
       var count = 0
       for{
         //convert string ip address to net.IPv4 address or hostname to ip if not
+        userInput := "172.217.4.110"
         userNet, err := net.ResolveIPAddr("ip4", userInput)
 
 
@@ -66,7 +67,7 @@ func main(){
             messByte, err := message.Marshal(nil)
 
             if err != nil{
-              log.Fatal(err)
+              fmt.Println(err)
             }
 
 
@@ -80,6 +81,7 @@ func main(){
 
             if err != nil {
               fmt.Println(err)
+              
             }
 
 
@@ -100,7 +102,7 @@ func main(){
 	          }
 
 
-          //  fmt.Println(mess.Body.Len(2))
+            fmt.Println(mess.Body.Len(2))
 
 
             switch mess.Type {
